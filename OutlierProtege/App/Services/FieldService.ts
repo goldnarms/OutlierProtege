@@ -1,25 +1,34 @@
-// Interface
-interface IPoint {
-    getDist(): number;
-}
+/// <reference path="../_all.ts" />
+module App.Services {
+    "use strict";
 
-// Module
-module Shapes {
-
-    // Class
-    export class Point implements IPoint {
-        // Constructor
-        constructor (public x: number, public y: number) { }
-
-        // Instance member
-        getDist() { return Math.sqrt(this.x * this.x + this.y * this.y); }
-
-        // Static member
-        static origin = new Point(0, 0);
+    export interface IFieldResource extends ng.resource.IResourceClass<App.Models.Field> {
+        update(field: App.Models.Field): IFieldResource;
     }
 
-}
+    export class FieldService {
+        public injection(): any[] { return ["$resource", FieldService]; }
 
-// Local variables
-var p: IPoint = new Shapes.Point(3, 4);
-var dist = p.getDist();
+        private updateAction: ng.resource.IActionDescriptor;
+        static $inject = ["$resource"];
+
+        constructor(private $resource: ng.resource.IResourceService) {
+            this.updateAction = {
+                method: 'PUT',
+                isArray: false
+            };
+        }
+
+        public update(field: App.Models.Field) {
+            // Return the resource, include your custom actions
+            return <IFieldResource>this.$resource('/api/field/:id', { id: '@id' }, {
+                update: this.updateAction
+            });
+
+        }
+
+        public get():Models.Field {
+            return null;
+        }
+    }
+}

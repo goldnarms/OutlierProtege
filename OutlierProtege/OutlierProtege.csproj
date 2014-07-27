@@ -588,8 +588,13 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="App\App.ts" />
+    <TypeScriptCompile Include="App\Controllers\FrontPageController.ts" />
+    <TypeScriptCompile Include="App\Interfaces\IUpdatableResourceClass.ts" />
+    <TypeScriptCompile Include="App\Models\Field.ts" />
     <TypeScriptCompile Include="App\Services\FieldService.ts" />
+    <TypeScriptCompile Include="App\Services\ResourceService.ts" />
     <TypeScriptCompile Include="App\_all.ts" />
+    <TypeScriptCompile Include="App\Models\Subject.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

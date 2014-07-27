@@ -8,3 +8,10 @@
 /// <reference path="../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../scripts/typings/toastr/toastr.d.ts" />
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
+
+/// <reference path="services/fieldservice.ts" />
+/// <reference path="models/field.ts" />
+/// <reference path="models/subject.ts" />
+/// <reference path="interfaces/iupdatableresourceclass.ts" />
+/// <reference path="services/resourceservice.ts" />
+/// <reference path="controllers/frontpagecontroller.ts" />
