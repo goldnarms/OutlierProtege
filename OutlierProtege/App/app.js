@@ -33,8 +33,8 @@ var App;
                 "self"]);
             var frontpageRoute = {
                 templateUrl: "Home/Home",
-                //controller: "frontpageCtrl",
-                //reloadOnSearch: false,
+                controller: "frontPageController",
+                controllerAs: "fpc",
                 caseInsensitiveMatch: true
             };
 
