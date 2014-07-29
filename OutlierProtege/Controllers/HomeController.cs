@@ -15,7 +15,7 @@ namespace OutlierProtege.Controllers
 
         public ActionResult FrontPage()
         {
-            return PartialView()
+            return PartialView("../Template/FrontPage");
         }
     }
 }
