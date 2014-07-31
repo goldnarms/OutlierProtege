@@ -20,7 +20,7 @@ namespace OutlierProtege
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            System.Data.Entity.Database.SetInitializer(new DropCreateDatabaseAlways<ProtegeContext>());
+            System.Data.Entity.Database.SetInitializer<ProtegeContext>(new DropCreateDatabaseAlways<ProtegeContext>());
             //var initializer = new Initializer();
             //initializer.Init(new ProtegeContext());
         }

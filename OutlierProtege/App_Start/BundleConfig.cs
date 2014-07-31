@@ -13,6 +13,7 @@ namespace OutlierProtege
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/angular-resource.js")
                 .Include("~/Scripts/angular-route.js")
+                .Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
                         );
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -39,7 +40,8 @@ namespace OutlierProtege
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
+            //TODO:  BundleTable.EnableOptimizations = true;
         }
     }
 }

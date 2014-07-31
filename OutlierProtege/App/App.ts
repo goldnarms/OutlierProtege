@@ -2,10 +2,11 @@
 module App {
     "use strict";
 
-    angular.module("App.services", ["ngResource"]);
-        //.service("fieldService", App.F.prototype.injection());
+    angular.module("App.services", ["ngResource"])
+        .service("resourceService", Services.ResourceService.prototype.injection());
+    //.service("fieldService", App.F.prototype.injection());
 
-    
+
     angular.module("App.controllers", [])
         .controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
 
@@ -18,31 +19,38 @@ module App {
     //}]);
 
     var angularModules = [
-        "App.services",
-        "App.controllers",
-        "App.directives",
-        "App.filters",
-        "App.common"
+        //"App.services",
+        //"App.controllers",
+        //"App.directives",
+        //"App.filters",
+        //"App.common",
+        "ngResource",
+        "ui.router"
     ];
 
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);
-    
+
     var app = angular.module("app", angularModules);
     app.factory("resourceService", App.Services.ResourceService.prototype.injection());
-    app.config(["$sceDelegateProvider", "$routeProvider", "$locationProvider", "$provide", ($sceDelegateProvider, $routeProvider: ng.route.IRouteProvider, $locationProvider: ng.ILocationProvider, $provide) => {
-        $sceDelegateProvider.resourceUrlWhitelist([
-            "^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube)\.com(/.*)?$",
-            "self"]);
-        var frontpageRoute = {
-            templateUrl: "Home/Home",
-            controller: "frontPageController",
-            controllerAs: "fpc",
-            caseInsensitiveMatch: true
-        };
+    app.controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
+    app.run(['$rootScope', '$state', '$stateParams', ($rootScope, $state, $stateParams) => {
+        // It's very handy to add references to $state and $stateParams to the $rootScope
+        // so that you can access them from any scope within your applications.For example,
+        // <li ui-sref-active="active }"> will set the <li> // to active whenever
+        // 'contacts.list' or one of its decendents is active.
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+    }]);
 
-        $routeProvider.when("/", frontpageRoute)
-            .otherwise(frontpageRoute);
-
+    app.config(["$locationProvider", "$stateProvider", "$urlRouterProvider", ($locationProvider: ng.ILocationProvider, $stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+        $urlRouterProvider
+            .otherwise('/');
+        $stateProvider
+            .state("home", {
+                controller: "frontPageController as fpc",
+                url: "/",
+                templateUrl: "Home/FrontPage"
+            });
         $locationProvider.html5Mode(true);
     }]);
 

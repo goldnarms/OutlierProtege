@@ -10,7 +10,7 @@ module App.Controllers {
         static $inject = ["resourceService"];
 
         public fields: Models.Field[];
-        constructor(private resourceService: App.Services.IResourceService) {
+        constructor(private resourceService: Services.IResourceService) {
             this.init();
         }
 

@@ -4,7 +4,11 @@
 
 <label>Your field of expertice</label>
 <input type="text" value="" />
-
+<ul>
+    <li data-ng-repeat="field in fpc.fields">
+        {{ field.Name }}
+    </li>
+</ul>
 <button>Next</button>
 
 

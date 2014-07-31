@@ -1,4 +1,5 @@
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Microsoft.AspNet.Identity.EntityFramework;
 using OutlierProtege.Models;
 
 namespace OutlierProtege.Database
@@ -8,11 +9,17 @@ namespace OutlierProtege.Database
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class ProtegeContext : DbContext
+    public partial class ProtegeContext : IdentityDbContext<ApplicationUser>
     {
         public ProtegeContext()
             : base("name=ProtegeContext")
         {
+        }
+
+
+        public static ProtegeContext Create()
+        {
+            return new ProtegeContext();
         }
 
         public DbSet<Subject> Subjects { get; set; }

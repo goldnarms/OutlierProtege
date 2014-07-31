@@ -8,6 +8,7 @@
 /// <reference path="../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../scripts/typings/toastr/toastr.d.ts" />
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
+/// <reference path="../scripts/typings/angular-ui/angular-ui-router.d.ts" />
 
 /// <reference path="services/fieldservice.ts" />
 /// <reference path="models/field.ts" />

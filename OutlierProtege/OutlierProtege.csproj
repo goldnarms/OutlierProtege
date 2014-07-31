@@ -189,6 +189,8 @@
     <Compile Include="Controllers\Api\SubjectsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Database\Initializer.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\ApplicationUserRole.cs" />
     <Compile Include="Models\Field.cs" />
     <Compile Include="Database\ProtegeContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,6 +203,23 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bower_components\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="bower_components\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="bower_components\angular-ui-router\src\common.js" />
+    <Content Include="bower_components\angular-ui-router\src\compat.js" />
+    <Content Include="bower_components\angular-ui-router\src\resolve.js" />
+    <Content Include="bower_components\angular-ui-router\src\state.js" />
+    <Content Include="bower_components\angular-ui-router\src\stateDirectives.js" />
+    <Content Include="bower_components\angular-ui-router\src\stateFilters.js" />
+    <Content Include="bower_components\angular-ui-router\src\templateFactory.js" />
+    <Content Include="bower_components\angular-ui-router\src\urlMatcherFactory.js" />
+    <Content Include="bower_components\angular-ui-router\src\urlRouter.js" />
+    <Content Include="bower_components\angular-ui-router\src\view.js" />
+    <Content Include="bower_components\angular-ui-router\src\viewDirective.js" />
+    <Content Include="bower_components\angular-ui-router\src\viewScroll.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\angular\angular.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -218,6 +237,16 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
+    <Content Include="bower_components\angular-ui-router\.bower.json" />
+    <Content Include="bower_components\angular-ui-router\bower.json" />
+    <Content Include="bower_components\angular-ui-router\CHANGELOG.md" />
+    <Content Include="bower_components\angular-ui-router\LICENSE" />
+    <Content Include="bower_components\angular-ui-router\README.md" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\angular.min.js.map" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\README.md" />
     <None Include="Properties\PublishProfiles\OutlierProtege.pubxml" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -596,6 +625,7 @@
     <TypeScriptCompile Include="App\Services\ResourceService.ts" />
     <TypeScriptCompile Include="App\_all.ts" />
     <TypeScriptCompile Include="App\Models\Subject.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-ui\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
