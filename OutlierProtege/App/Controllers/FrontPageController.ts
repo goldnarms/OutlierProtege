@@ -19,3 +19,8 @@ module App.Controllers {
         }
     }
 }
+
+angular.module("app.controllers")
+    .controller("frontPageController", ["resourceService", (resourceService: App.Services.IResourceService): App.Controllers.IFrontPageController=> {
+    return new App.Controllers.FrontPageConroller(resourceService);
+}]);

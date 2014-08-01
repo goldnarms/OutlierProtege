@@ -23,4 +23,9 @@ var App;
     })(App.Controllers || (App.Controllers = {}));
     var Controllers = App.Controllers;
 })(App || (App = {}));
+
+angular.module("app.controllers").controller("frontPageController", [
+    "resourceService", function (resourceService) {
+        return new App.Controllers.FrontPageConroller(resourceService);
+    }]);
 //# sourceMappingURL=FrontPageController.js.map

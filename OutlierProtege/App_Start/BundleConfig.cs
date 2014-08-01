@@ -20,10 +20,11 @@ namespace OutlierProtege
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app")
+                .Include("~/App/App.js")
                 .IncludeDirectory("~/App/Services/", "*.js")
                 .IncludeDirectory("~/App/Interfaces/", "*.js")
                 .IncludeDirectory("~/App/Controllers/", "*.js")
-                .Include("~/App/App.js"));
+                );
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

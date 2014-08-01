@@ -2,13 +2,14 @@
 module App {
     "use strict";
 
-    angular.module("App.services", ["ngResource"])
-        .service("resourceService", Services.ResourceService.prototype.injection());
+    angular.module("app.services", []);
+        //.factory("resourceService", App.Services.ResourceService.prototype.injection());
+        //.service("resourceService", Services.ResourceService.prototype.injection());
     //.service("fieldService", App.F.prototype.injection());
 
 
-    angular.module("App.controllers", [])
-        .controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
+    angular.module("app.controllers", ["app.services", "ngResource"]);
+        
 
     angular.module("App.directives", []);
 
@@ -19,8 +20,8 @@ module App {
     //}]);
 
     var angularModules = [
-        //"App.services",
-        //"App.controllers",
+        "app.controllers",
+        "app.services",
         //"App.directives",
         //"App.filters",
         //"App.common",
@@ -31,8 +32,8 @@ module App {
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);
 
     var app = angular.module("app", angularModules);
-    app.factory("resourceService", App.Services.ResourceService.prototype.injection());
-    app.controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
+    //app.factory("resourceService", App.Services.ResourceService.prototype.injection());
+    //app.controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
     app.run(['$rootScope', '$state', '$stateParams', ($rootScope, $state, $stateParams) => {
         // It's very handy to add references to $state and $stateParams to the $rootScope
         // so that you can access them from any scope within your applications.For example,

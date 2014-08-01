@@ -1,5 +1,5 @@
 module App.Services {
-    'use strict';
+    "use strict";
     export interface IResourceService {
         fields: ng.resource.IResourceClass<Models.Field>;
         field: Interfaces.IUpdatableResourceClass<Models.Field>;
@@ -11,7 +11,7 @@ module App.Services {
         public injection(): any[] { return ["$resource", ResourceService]; }
         static $inject = ["$resource"];
 
-        constructor($resource: ng.resource.IResourceService) {
+        constructor(private $resource: ng.resource.IResourceService) {
             this.fields = $resource<Models.Field>("/api/fields");
 
             this.field = <Interfaces.IUpdatableResourceClass<Models.Field>>
@@ -20,7 +20,7 @@ module App.Services {
     }
 }
 
-//angular.module("sidekick-note.service")
-//    .factory("apiService", ["$resource", ($resource: ng.resource.IResourceService): services.ApiService=> {
-//        return new services.ApiService($resource);
-//    }]);
+angular.module("app.services")
+    .factory("resourceService", ["$resource", ($resource: ng.resource.IResourceService): App.Services.IResourceService=> {
+        return new App.Services.ResourceService($resource);
+    }]);
