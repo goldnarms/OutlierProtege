@@ -40,5 +40,8 @@ Icon
 *.log
 OutlierProtege/bin/
 OutlierProtege/obj/
+OutlierProtege/bower_components/
 packages/
+node_modules/
+dist/
 OutlierProtege.v12.suo
