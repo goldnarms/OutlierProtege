@@ -21,7 +21,8 @@ var App;
         "app.controllers",
         "app.services",
         "ngResource",
-        "ui.router"
+        "ui.router",
+        "ui.bootstrap"
     ];
 
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);

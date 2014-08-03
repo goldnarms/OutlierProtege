@@ -16,3 +16,6 @@
 /// <reference path="interfaces/iupdatableresourceclass.ts" />
 /// <reference path="services/resourceservice.ts" />
 /// <reference path="controllers/frontpagecontroller.ts" />
+/// <reference path="services/logger.ts" />
+
+//declare var toastr: any;

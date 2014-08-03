@@ -3,7 +3,8 @@
 
 
 <label>Your field of expertice</label>
-<input type="text" value="" />
+<input type="text" value="" typeahead="field.Name for field in fpc.fields | filter:$viewValue | limitTo:8" ng-model="fpc.selectedField" />
+
 <ul>
     <li data-ng-repeat="field in fpc.fields">
         {{ field.Name }}

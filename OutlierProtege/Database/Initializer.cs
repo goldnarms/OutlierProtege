@@ -6,7 +6,7 @@ using OutlierProtege.Models;
 
 namespace OutlierProtege.Database
 {
-    public class Initializer : System.Data.Entity.DropCreateDatabaseAlways<ProtegeContext>
+    public class Initializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<ProtegeContext>
     {
         public void Init(ProtegeContext context)
         {
@@ -16,7 +16,8 @@ namespace OutlierProtege.Database
         {
             var fields = new List<Field>
                 {
-                    new Field {Name = "Programming"}
+                    new Field {Name = "Programming"},
+                    new Field {Name = "Sales"}
                 };
             fields.ForEach(f => context.Fields.Add(f));
             context.SaveChanges();

@@ -26,7 +26,8 @@ module App {
         //"App.filters",
         //"App.common",
         "ngResource",
-        "ui.router"
+        "ui.router",
+        "ui.bootstrap"
     ];
 
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);
