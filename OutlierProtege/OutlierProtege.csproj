@@ -2902,8 +2902,11 @@
   <ItemGroup>
     <TypeScriptCompile Include="App\App.ts" />
     <TypeScriptCompile Include="App\Controllers\FrontPageController.ts" />
+    <TypeScriptCompile Include="App\Interfaces\IDbModel.ts" />
     <TypeScriptCompile Include="App\Interfaces\IUpdatableResourceClass.ts" />
+    <TypeScriptCompile Include="App\Interfaces\IProtege.ts" />
     <TypeScriptCompile Include="App\Models\Field.ts" />
+    <TypeScriptCompile Include="App\Models\Protege.ts" />
     <TypeScriptCompile Include="App\Services\FieldService.ts" />
     <TypeScriptCompile Include="App\Services\Logger.ts" />
     <TypeScriptCompile Include="App\Services\ResourceService.ts" />
