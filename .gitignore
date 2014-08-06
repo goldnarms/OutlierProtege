@@ -18,10 +18,101 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#nuget packages
+src/packages
+
+#Visual Studio files
+*.Publish.xml
+*.[Oo]bj
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.sdf
+*.docstates
+*.opensdf
+*.vsp
+ipch/
+obj/
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+[Tt]estResults*/
+*.suo
+*.orig
+Log.txt
+src/_UpgradeReport_Files
+UpgradeLog.XML
+UpgradeLog.htm
+UpgradeLog2.XML
+UpgradeLog2.htm
+
+*.pubxml
+
+#Tooling
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+StyleCop.*
+TestResults/
+.sass-cache/
+#Tabs Studio Files
+*.tss
+
+#Sublime Text 2
+*.sublime-project
+*.sublime-workspace
+
+#type script stuff
+tscommand.tmp.txt
+OutlierProtege/App/*.js
+OutlierProtege/App/*.map
+OutlierProtege/App/**/*.js
+OutlierProtege/App/**/*.map
+OutlierProtege/App/**/**/*.js
+OutlierProtege/App/**/**/*.map
+OutlierProtege/App/**/**/**/*.js
+OutlierProtege/App/**/**/**/*.map
+OutlierProtege/App_Data
+!bin
+
+#CSS files are built with SASS at build time.
+OutlierProtege/Content/Site.css
+OutlierProtege/Content/Site.min.css
+
+#Node module stuff
+node_modules
+
+*.chk
+OutlierProtege.sln.ide/storage.ide
+*.chk
+*.jrs
+*.ide
+OutlierProtege.sln.ide/storage.ide
+*.jrs
+OutlierProtege.sln.ide/edb.chk
+
 # OSX
 # =========================
 
-.DS_Store
 .AppleDouble
 .LSOverride
 
@@ -42,6 +133,5 @@ OutlierProtege/bin/
 OutlierProtege/obj/
 OutlierProtege/bower_components/
 packages/
-node_modules/
 dist/
 OutlierProtege.v12.suo

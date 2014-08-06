@@ -1,4 +1,4 @@
-var App;
+﻿var App;
 (function (App) {
     /// <reference path="../_all.ts" />
     (function (Controllers) {
@@ -13,7 +13,12 @@ var App;
                 return ["resourceService", FrontPageConroller];
             };
 
+            FrontPageConroller.prototype.goToNextStep = function () {
+                this.wizardStepIndex++;
+            };
+
             FrontPageConroller.prototype.init = function () {
+                this.wizardStepIndex = 0;
                 this.fields = this.resourceService.fields.query();
             };
             FrontPageConroller.$inject = ["resourceService"];
@@ -28,4 +33,4 @@ angular.module("app.controllers").controller("frontPageController", [
     "resourceService", function (resourceService) {
         return new App.Controllers.FrontPageConroller(resourceService);
     }]);
-//# sourceMappingURL=FrontPageController.js.map
+//# sourceMappingURL=frontpagecontroller.js.map

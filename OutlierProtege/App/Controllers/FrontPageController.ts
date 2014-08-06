@@ -2,7 +2,10 @@
 module App.Controllers {
     "use strict";
     export interface IFrontPageController {
+        goToNextStep(): void;
         fields: Models.Field[];
+        wizardStepIndex: number;
+        selectedField: string;
     }
 
     export class FrontPageConroller {
@@ -10,11 +13,18 @@ module App.Controllers {
         static $inject = ["resourceService"];
 
         public fields: Models.Field[];
+        public wizardStepIndex: number;
+        public selectedField: string;
         constructor(private resourceService: Services.IResourceService) {
             this.init();
         }
 
+        public goToNextStep(): void {
+            this.wizardStepIndex++;
+        }
+
         private init(): void {
+            this.wizardStepIndex = 0;
             this.fields = this.resourceService.fields.query();
         }
     }

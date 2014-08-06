@@ -1,15 +1,16 @@
-﻿<h1>Outlier Protege</h1>
-<h3>Track your progress, thanks to Malcom Gladwell</h3>
+﻿<div data-ng-if="fpc.wizardStepIndex == 0">
+    <label for="field">Your field of expertice</label>
+    <input type="text" name="field" value="" typeahead="field.Name for field in fpc.fields | filter:$viewValue | limitTo:8" ng-model="fpc.selectedField" />
+    <button data-ng-disabled="!fpc.selectedField" class="btn btn-default">Next</button>
+</div>
+<div data-ng-if="fpc.wizardStepIndex == 1">
+    <label for="field">How many year have you been practicing in {{ fpc.selectedField }}?</label>
+    <input type="number" value="" ng-model="fpc.selectedField" />
 
-
-<label>Your field of expertice</label>
-<input type="text" value="" typeahead="field.Name for field in fpc.fields | filter:$viewValue | limitTo:8" ng-model="fpc.selectedField" />
-
-<ul>
-    <li data-ng-repeat="field in fpc.fields">
-        {{ field.Name }}
-    </li>
-</ul>
-<button>Next</button>
-
-
+    <ul>
+        <li data-ng-repeat="field in fpc.fields">
+            {{ field.Name }}
+        </li>
+    </ul>
+    <button data-ng-disabled="!fpc.selectedField" class="btn btn-default">Next</button>
+</div>
