@@ -3,40 +3,104 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body class="layout-boxed">
+    @*style="background-image: url(image_url)"*@
+    <header id="masthead" class="navbar navbar-sticky swatch-red-white" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".main-navbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="../index.html" class="navbar-brand">
+                    <img src="~/Content/images/logo.png" alt="One of the best themes ever">Angle
+                </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <nav class="collapse navbar-collapse main-navbar" role="navigation">
+                <div class="sidebar-widget widget_search pull-right">
+                    <form>
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Search here....">
+                            <span class="input-group-btn">
+                                <button class="btn" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                        @*<ul class="dropdown-menu">
+                            <li>
+                                <a href="index.html">v1. Classic</a>
+                            </li>
+                        </ul>*@
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("About", "About", "Home")
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        @Html.Partial("_LoginPartial")
+                    </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+
+            </nav>
         </div>
-    </div>
-    <div class="container body-content">
+    </header>
+    <div id="content" role="main">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="section swatch-red-white has-top" id="footer" role="contentinfo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="sidebar-widget  widget_swatch_social" id="swatch_social-2">
+                            <ul class="unstyled inline small-screen-center social-icons social-background social-big">
+                                <li>
+                                    <a href="http://www.oxygenna.com" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.oxygenna.com" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://www.oxygenna.com" target="_blank">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget widget_text" id="text-4">
+                            <div class="textwidget">
+                                ANGLE 2014 ALL RIGHTS RESERVED
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
-
+    <a class="go-top hex-alt" href="javascript:void(0)">
+        <i class="fa fa-angle-up"></i>
+    </a>
     @Scripts.Render("~/bundles/scripts")
     @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)

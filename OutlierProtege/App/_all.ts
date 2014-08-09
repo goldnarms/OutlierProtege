@@ -12,6 +12,7 @@
 
 /// <reference path="services/fieldservice.ts" />
 /// <reference path="models/field.ts" />
+/// <reference path="directives/wizard.ts" />
 /// <reference path="models/subject.ts" />
 /// <reference path="interfaces/iupdatableresourceclass.ts" />
 /// <reference path="services/resourceservice.ts" />

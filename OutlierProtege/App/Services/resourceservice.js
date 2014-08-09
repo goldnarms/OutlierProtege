@@ -7,8 +7,10 @@ var App;
             function ResourceService($resource) {
                 this.$resource = $resource;
                 this.fields = $resource("/api/fields");
-
                 this.field = $resource("/api/fields/:id", {}, { update: { method: 'PUT' } });
+
+                this.proteges = $resource("/api/proteges");
+                this.protege = $resource("/api/proteges/:id", {}, { update: { method: 'PUT' } });
             }
             ResourceService.prototype.injection = function () {
                 return ["$resource", ResourceService];
@@ -20,9 +22,4 @@ var App;
     })(App.Services || (App.Services = {}));
     var Services = App.Services;
 })(App || (App = {}));
-
-angular.module("app.services").factory("resourceService", [
-    "$resource", function ($resource) {
-        return new App.Services.ResourceService($resource);
-    }]);
 //# sourceMappingURL=ResourceService.js.map

@@ -10,6 +10,8 @@ namespace OutlierProtege
         {
             bundles.Add(new ScriptBundle("~/bundles/scripts")
                 .Include("~/bower_components/angular/angular.js")
+                .Include("~/bower_components/jquery/dist/jquery.js")
+                .Include("~/bower_components/underscore/underscore.js")
                 //.Include("~/bower_components/angular-animate/angular-animate.js")
                 .Include("~/bower_components/angular-bootstrap/ui-bootstrap.js")
                 .Include("~/bower_components/angular-bootstrap/ui-bootstrap-tpls.js")
@@ -18,10 +20,11 @@ namespace OutlierProtege
                 //.Include("~/bower_components/angular-route/angular-route.js")
                 .Include("~/bower_components/angular-sanitize/angular-sanitize.js")
                 .Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
-                //.Include("~/bower_components/angular-wizard/dist/angular-wizard.js")
+                .Include("~/bower_components/jquery-steps/build/jquery.steps.js")
+                .Include("~/bower_components/angular-wizard/dist/angular-wizard.js")
                 .Include("~/bower_components/bootstrap/dist/js/bootstrap.js")
-                .Include("~/bower_components/jquery/dist/jquery.js")
-                .Include("~/bower_components/underscore/underscore.js")
+                .Include("~/Scripts/packages.js")
+                .Include("~/Scripts/theme.js")
                 //.Include("~/bower_components/angular/angular.js")
                 //.Include("~/bower_components/angular/angular.js")
                 //.Include("~/bower_components/angular/angular.js")
@@ -41,10 +44,12 @@ namespace OutlierProtege
             //            "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/app")
-                .Include("~/App/App.js")
                 .IncludeDirectory("~/App/Services/", "*.js")
+                .IncludeDirectory("~/App/Directives/", "*.js")
                 .IncludeDirectory("~/App/Interfaces/", "*.js")
                 .IncludeDirectory("~/App/Controllers/", "*.js")
+                .IncludeDirectory("~/App/Models/", "*.js")
+                .Include("~/App/App.js")
                 );
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -53,8 +58,11 @@ namespace OutlierProtege
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/bower_components/bootstrap/dist/css/bootstrap.css")
-                .Include("~/Content/main.css")
-                .Include("~/Content/site.css")
+                //.Include("~/Content/main.css")
+                //.Include("~/Content/site.css")
+                .Include("~/Content/swatch-red-white.css")
+                .Include("~/Content/swatch-white-red.css")
+                .Include("~/Content/theme.css")
                 );
 
             // Set EnableOptimizations to false for debugging. For more information,

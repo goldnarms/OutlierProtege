@@ -14,12 +14,34 @@ namespace OutlierProtege.Database
         }
         protected override void Seed(ProtegeContext context)
         {
+            var programming = new Field
+            {
+                Name = "Programming",
+                //Id = 0,
+                //Subjects = new List<Subject>
+                //{
+                //    new Subject { Id = 4, Name = "C#" }
+                //}
+            };
+            var sales = new Field
+            {
+                Name = "Sales",
+                //Subjects = new List<Subject>
+                //{
+                //    new Subject { Id = 5, Name = "Presentations" }
+                //}
+            };
             var fields = new List<Field>
                 {
-                    new Field {Name = "Programming"},
-                    new Field {Name = "Sales"}
+                    programming,
+                    sales
                 };
             fields.ForEach(f => context.Fields.Add(f));
+            var subjects = new List<Subject>
+            {
+                new Subject { Id = 2, Name = "Asp.Net"}
+            };
+            subjects.ForEach(s => context.Subjects.Add(s));
             context.SaveChanges();
         }
     }

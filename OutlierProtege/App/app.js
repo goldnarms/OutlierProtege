@@ -3,14 +3,22 @@ var App;
 (function (App) {
     "use strict";
 
-    angular.module("app.services", []);
-
+    //angular.module("app.services", []);
     //.factory("resourceService", App.Services.ResourceService.prototype.injection());
     //.service("resourceService", Services.ResourceService.prototype.injection());
     //.service("fieldService", App.F.prototype.injection());
-    angular.module("app.controllers", ["app.services", "ngResource"]);
+    angular.module("app.services", ["ngResource"]).service("resourceService", App.Services.ResourceService.prototype.injection());
 
-    angular.module("App.directives", []);
+    //["$resource", ($resource: ng.resource.IResourceService): App.Services.IResourceService=> {
+    //    return new App.Services.ResourceService($resource);
+    //}]
+    //angular.module("app.controllers", ["app.services", "ngResource"]);
+    angular.module("app.controllers", ["app.services", "ngResource"]).controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
+
+    //(resourceService: App.Services.IResourceService): App.Controllers.IFrontPageController=> {
+    //    return new App.Controllers.FrontPageConroller(resourceService);
+    //    }]
+    angular.module("app.directives", []).directive("opWizard", App.Directives.WizardInit.prototype.injection());
 
     angular.module("App.filters", []);
 
@@ -18,11 +26,13 @@ var App;
     //    return new services.ApiService($resource);
     //}]);
     var angularModules = [
-        "app.controllers",
         "app.services",
+        "app.controllers",
+        "app.directives",
         "ngResource",
         "ui.router",
-        "ui.bootstrap"
+        "ui.bootstrap",
+        "mgo-angular-wizard"
     ];
 
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);

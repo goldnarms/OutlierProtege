@@ -1,4 +1,4 @@
-﻿var App;
+var App;
 (function (App) {
     /// <reference path="../_all.ts" />
     (function (Controllers) {
@@ -13,8 +13,14 @@
                 return ["resourceService", FrontPageConroller];
             };
 
-            FrontPageConroller.prototype.goToNextStep = function () {
-                this.wizardStepIndex++;
+            FrontPageConroller.prototype.yearsToLog = function (years) {
+                return new Array(years);
+            };
+
+            FrontPageConroller.prototype.wizardFinished = function (viewModel) {
+                var protege = new App.Models.Protege(this.resourceService);
+                protege.field = viewModel.selectedField;
+                protege.saveToDb();
             };
 
             FrontPageConroller.prototype.init = function () {
@@ -28,9 +34,4 @@
     })(App.Controllers || (App.Controllers = {}));
     var Controllers = App.Controllers;
 })(App || (App = {}));
-
-angular.module("app.controllers").controller("frontPageController", [
-    "resourceService", function (resourceService) {
-        return new App.Controllers.FrontPageConroller(resourceService);
-    }]);
-//# sourceMappingURL=frontpagecontroller.js.map
+//# sourceMappingURL=FrontPageController.js.map
