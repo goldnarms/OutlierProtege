@@ -25,6 +25,9 @@ namespace OutlierProtege.Database
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Field> Fields { get; set; }
         public DbSet<Protege> Proteges { get; set; }
+        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Source> Sources { get; set; }
+        public DbSet<Practice> Practices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -13,8 +13,21 @@ var App;
                 return ["resourceService", FrontPageConroller];
             };
 
-            FrontPageConroller.prototype.yearsToLog = function (years) {
-                return new Array(years);
+            FrontPageConroller.prototype.addYears = function (years) {
+                this.protegeViewModel.years = years;
+                var practiceList = [];
+                for (var i = 1; i <= years; i++) {
+                    this.protegeViewModel.practiceVMs.push({ year: i, practices: [null] });
+                }
+            };
+
+            FrontPageConroller.prototype.addPractice = function (year) {
+                var practice = _.find(this.protegeViewModel.practiceVMs, function (pvm) {
+                    return pvm.year === year;
+                });
+                if (practice) {
+                    practice.practices.push({});
+                }
             };
 
             FrontPageConroller.prototype.wizardFinished = function (viewModel) {
@@ -26,6 +39,9 @@ var App;
             FrontPageConroller.prototype.init = function () {
                 this.wizardStepIndex = 0;
                 this.fields = this.resourceService.fields.query();
+                this.sources = this.resourceService.sources.query();
+                this.tasks = this.resourceService.tasks.query();
+                this.protegeViewModel = { practiceVMs: [] };
             };
             FrontPageConroller.$inject = ["resourceService"];
             return FrontPageConroller;

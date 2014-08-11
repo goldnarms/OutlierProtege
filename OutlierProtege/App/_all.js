@@ -17,5 +17,4 @@
 /// <reference path="services/resourceservice.ts" />
 /// <reference path="controllers/frontpagecontroller.ts" />
 /// <reference path="services/logger.ts" />
-//declare var toastr: any;
 //# sourceMappingURL=_all.js.map

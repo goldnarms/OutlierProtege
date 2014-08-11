@@ -187,7 +187,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\FieldsController.cs" />
     <Compile Include="Controllers\Api\ProtegeController.cs" />
+    <Compile Include="Controllers\Api\SourcesController.cs" />
     <Compile Include="Controllers\Api\SubjectsController.cs" />
+    <Compile Include="Controllers\Api\TasksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Database\Initializer.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
@@ -199,8 +201,11 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Practice.cs" />
     <Compile Include="Models\Protege.cs" />
+    <Compile Include="Models\Source.cs" />
     <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -3215,10 +3220,16 @@
     <TypeScriptCompile Include="App\Controllers\FrontPageController.ts" />
     <TypeScriptCompile Include="App\Directives\Wizard.ts" />
     <TypeScriptCompile Include="App\Interfaces\IDbModel.ts" />
+    <TypeScriptCompile Include="App\Interfaces\IPractice.ts" />
+    <TypeScriptCompile Include="App\Interfaces\ISource.ts" />
+    <TypeScriptCompile Include="App\Interfaces\ITask.ts" />
     <TypeScriptCompile Include="App\Interfaces\IUpdatableResourceClass.ts" />
     <TypeScriptCompile Include="App\Interfaces\IProtege.ts" />
     <TypeScriptCompile Include="App\Models\Field.ts" />
+    <TypeScriptCompile Include="App\Models\Practice.ts" />
     <TypeScriptCompile Include="App\Models\Protege.ts" />
+    <TypeScriptCompile Include="App\Models\Source.ts" />
+    <TypeScriptCompile Include="App\Models\Task.ts" />
     <TypeScriptCompile Include="App\Services\FieldService.ts" />
     <TypeScriptCompile Include="App\Services\Logger.ts" />
     <TypeScriptCompile Include="App\Services\ResourceService.ts" />

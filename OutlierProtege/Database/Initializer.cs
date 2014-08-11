@@ -42,6 +42,18 @@ namespace OutlierProtege.Database
                 new Subject { Id = 2, Name = "Asp.Net"}
             };
             subjects.ForEach(s => context.Subjects.Add(s));
+
+            var tasks = new List<Task>
+            {
+                new Task { Description = "Study" }
+            };
+            tasks.ForEach(t => context.Tasks.Add(t));
+
+            var sources = new List<Source>
+            {
+                new Source { Description = "Source" }
+            };
+            sources.ForEach(s => context.Sources.Add(s));
             context.SaveChanges();
         }
     }

@@ -11,6 +11,15 @@ var App;
 
                 this.proteges = $resource("/api/proteges");
                 this.protege = $resource("/api/proteges/:id", {}, { update: { method: 'PUT' } });
+
+                this.sources = $resource("/api/sources");
+                this.source = $resource("/api/sources/:id", {}, { update: { method: 'PUT' } });
+
+                this.tasks = $resource("/api/tasks");
+                this.task = $resource("/api/tasks/:id", {}, { update: { method: "PUT" } });
+
+                this.practices = $resource("/api/practices");
+                this.practice = $resource("/api/practices/:id", {}, { update: { method: "PUT" } });
             }
             ResourceService.prototype.injection = function () {
                 return ["$resource", ResourceService];

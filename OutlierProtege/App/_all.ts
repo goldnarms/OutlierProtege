@@ -20,3 +20,4 @@
 /// <reference path="services/logger.ts" />
 
 //declare var toastr: any;
+declare var _: any;
