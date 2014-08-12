@@ -4,16 +4,17 @@ var App;
     (function (Controllers) {
         "use strict";
 
-        var FrontPageConroller = (function () {
-            function FrontPageConroller(resourceService) {
+        var FrontPageController = (function () {
+            function FrontPageController($state, resourceService) {
+                this.$state = $state;
                 this.resourceService = resourceService;
                 this.init();
             }
-            FrontPageConroller.prototype.injection = function () {
-                return ["resourceService", FrontPageConroller];
+            FrontPageController.prototype.injection = function () {
+                return ["$state", "resourceService", FrontPageController];
             };
 
-            FrontPageConroller.prototype.addYears = function (years) {
+            FrontPageController.prototype.addYears = function (years) {
                 this.protegeViewModel.years = years;
                 var practiceList = [];
                 for (var i = 1; i <= years; i++) {
@@ -21,7 +22,7 @@ var App;
                 }
             };
 
-            FrontPageConroller.prototype.addPractice = function (year) {
+            FrontPageController.prototype.addPractice = function (year) {
                 var practice = _.find(this.protegeViewModel.practiceVMs, function (pvm) {
                     return pvm.year === year;
                 });
@@ -30,23 +31,29 @@ var App;
                 }
             };
 
-            FrontPageConroller.prototype.wizardFinished = function (viewModel) {
+            FrontPageController.prototype.wizardFinished = function (viewModel) {
                 var protege = new App.Models.Protege(this.resourceService);
+                protege.hoursLogged = 30;
                 protege.field = viewModel.selectedField;
-                protege.saveToDb();
+                var savedProtege = protege.saveToDb();
+                this.$state.go("register", { pid: savedProtege.id });
             };
 
-            FrontPageConroller.prototype.init = function () {
+            FrontPageController.prototype.init = function () {
                 this.wizardStepIndex = 0;
                 this.fields = this.resourceService.fields.query();
                 this.sources = this.resourceService.sources.query();
                 this.tasks = this.resourceService.tasks.query();
                 this.protegeViewModel = { practiceVMs: [] };
+                this.hoursInWeek = [];
+                for (var i = 1; i <= 100; i++) {
+                    this.hoursInWeek.push({ value: i, text: i + " h" });
+                }
             };
-            FrontPageConroller.$inject = ["resourceService"];
-            return FrontPageConroller;
+            FrontPageController.$inject = ["$state", "resourceService"];
+            return FrontPageController;
         })();
-        Controllers.FrontPageConroller = FrontPageConroller;
+        Controllers.FrontPageController = FrontPageController;
     })(App.Controllers || (App.Controllers = {}));
     var Controllers = App.Controllers;
 })(App || (App = {}));

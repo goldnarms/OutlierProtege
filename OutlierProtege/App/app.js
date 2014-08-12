@@ -13,7 +13,7 @@ var App;
     //    return new App.Services.ResourceService($resource);
     //}]
     //angular.module("app.controllers", ["app.services", "ngResource"]);
-    angular.module("app.controllers", ["app.services", "ngResource"]).controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
+    angular.module("app.controllers", ["app.services", "ngResource"]).controller("frontPageController", App.Controllers.FrontPageController.prototype.injection()).controller("registerController", App.Controllers.RegisterController.prototype.injection());
 
     //(resourceService: App.Services.IResourceService): App.Controllers.IFrontPageController=> {
     //    return new App.Controllers.FrontPageConroller(resourceService);
@@ -30,6 +30,7 @@ var App;
         "app.controllers",
         "app.directives",
         "ngResource",
+        "ngRoute",
         "ui.router",
         "ui.bootstrap",
         "mgo-angular-wizard"
@@ -57,6 +58,10 @@ var App;
                 controller: "frontPageController as fpc",
                 url: "/",
                 templateUrl: "Home/FrontPage"
+            }).state("register", {
+                controller: "registerController as rc",
+                url: "register/:id",
+                templateUrl: "Home/Register"
             });
             $locationProvider.html5Mode(true);
         }]);

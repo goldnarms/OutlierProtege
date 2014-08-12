@@ -15,7 +15,9 @@ module App {
     //angular.module("app.controllers", ["app.services", "ngResource"]);
 
     angular.module("app.controllers", ["app.services", "ngResource"])
-        .controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());    
+        .controller("frontPageController", App.Controllers.FrontPageController.prototype.injection())
+        .controller("registerController", App.Controllers.RegisterController.prototype.injection())
+    ;    
     //(resourceService: App.Services.IResourceService): App.Controllers.IFrontPageController=> {
     //    return new App.Controllers.FrontPageConroller(resourceService);
     //    }]
@@ -35,6 +37,7 @@ module App {
         //"App.filters",
         //"App.common",
         "ngResource",
+        "ngRoute",
         "ui.router",
         "ui.bootstrap",
         "mgo-angular-wizard"
@@ -62,6 +65,11 @@ module App {
                 controller: "frontPageController as fpc",
                 url: "/",
                 templateUrl: "Home/FrontPage"
+            })
+            .state("register", {
+                controller: "registerController as rc",
+                url: "register/:id",
+                templateUrl: "Home/Register"
             });
         $locationProvider.html5Mode(true);
     }]);

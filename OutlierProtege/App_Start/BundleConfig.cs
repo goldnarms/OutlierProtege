@@ -17,7 +17,7 @@ namespace OutlierProtege
                 .Include("~/bower_components/angular-bootstrap/ui-bootstrap-tpls.js")
                 .Include("~/bower_components/angular-cookies/angular-cookies.js")
                 .Include("~/bower_components/angular-resource/angular-resource.js")
-                //.Include("~/bower_components/angular-route/angular-route.js")
+                .Include("~/bower_components/angular-route/angular-route.js")
                 .Include("~/bower_components/angular-sanitize/angular-sanitize.js")
                 .Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
                 .Include("~/bower_components/jquery-steps/build/jquery.steps.js")

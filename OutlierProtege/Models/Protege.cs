@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace OutlierProtege.Models
 {
@@ -12,8 +9,12 @@ namespace OutlierProtege.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int UserId { get; set; }
         public int HoursLogged { get; set; }
-        public Field Field { get; set; }
+        public int FieldId { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("FieldId")]
+        public virtual Field Field { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser User { get; set; }
     }
 }

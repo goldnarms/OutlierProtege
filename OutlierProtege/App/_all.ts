@@ -9,6 +9,8 @@
 /// <reference path="../scripts/typings/toastr/toastr.d.ts" />
 /// <reference path="../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="../scripts/typings/angular-ui/angular-ui-router.d.ts" />
+/// <reference path="../scripts/typings/angular-ui-bootstrap/angular-ui-bootstrap.d.ts" />
+/// <reference path="../scripts/typings/underscore/underscore.d.ts" />
 
 /// <reference path="services/fieldservice.ts" />
 /// <reference path="models/field.ts" />
@@ -18,6 +20,3 @@
 /// <reference path="services/resourceservice.ts" />
 /// <reference path="controllers/frontpagecontroller.ts" />
 /// <reference path="services/logger.ts" />
-
-//declare var toastr: any;
-declare var _: any;

@@ -23,6 +23,12 @@ namespace OutlierProtege
             System.Data.Entity.Database.SetInitializer<ProtegeContext>(new DropCreateDatabaseAlways<ProtegeContext>());
             //var initializer = new Initializer();
             //initializer.Init(new ProtegeContext());
+
+            var formatters = GlobalConfiguration.Configuration.Formatters;
+            var jsonFormatter = formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            settings.Formatting = Newtonsoft.Json.Formatting.Indented;
+            settings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
         }
     }
 }

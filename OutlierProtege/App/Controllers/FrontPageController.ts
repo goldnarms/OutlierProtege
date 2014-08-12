@@ -2,20 +2,20 @@
 module App.Controllers {
     "use strict";
     export interface IFrontPageController {
-        goToNextStep(): void;
         addYears(years: number): void;
         addPractice(year: number): void;
-        wizardFinished(): void;
+        wizardFinished(viewModel: IProtegeViewModel): void;
         fields: Models.Field[];
         sources: Models.Source[];
         tasks: Models.Task[];
         selectedField: string;
+        hoursInWeek: IHourViewModel[];
         protegeViewModel: IProtegeViewModel;
     }
 
-    export class FrontPageConroller {
-        public injection(): any[] { return ["resourceService", FrontPageConroller]; }
-        static $inject = ["resourceService"];
+    export class FrontPageController implements IFrontPageController{
+        public injection(): any[] { return ["$state", "resourceService", FrontPageController]; }
+        static $inject = ["$state", "resourceService"];
 
         public fields: Models.Field[];
         public sources: Models.Source[];
@@ -23,7 +23,8 @@ module App.Controllers {
         public wizardStepIndex: number;
         public selectedField: string;
         public protegeViewModel: IProtegeViewModel;
-        constructor(private resourceService: Services.IResourceService) {
+        public hoursInWeek: IHourViewModel[];
+        constructor(private $state: ng.ui.IStateService, private resourceService: Services.IResourceService) {
             this.init();
         }
 
@@ -44,8 +45,10 @@ module App.Controllers {
 
         public wizardFinished(viewModel: IProtegeViewModel): void {
             var protege = new Models.Protege(this.resourceService);
+            protege.hoursLogged = 30;
             protege.field = viewModel.selectedField;
-            protege.saveToDb();
+            var savedProtege = protege.saveToDb();
+            this.$state.go("register", { pid: savedProtege.id });
         }
 
         private init(): void {
@@ -54,6 +57,10 @@ module App.Controllers {
             this.sources = this.resourceService.sources.query();
             this.tasks = this.resourceService.tasks.query();
             this.protegeViewModel = <IProtegeViewModel>{ practiceVMs: [] }
+            this.hoursInWeek = [];
+            for (var i = 1; i <= 100; i++) {
+                this.hoursInWeek.push(<IHourViewModel>{ value: i, text: i + " h" });
+            }
         }
     }
 
@@ -66,5 +73,10 @@ module App.Controllers {
     export interface IPracticeViewModel {
         year: number;
         practices: Interfaces.IPractice[];
+    }
+
+    export interface IHourViewModel {
+        value: number;
+        text: string;
     }
 }

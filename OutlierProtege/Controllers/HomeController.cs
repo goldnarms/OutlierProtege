@@ -17,5 +17,10 @@ namespace OutlierProtege.Controllers
         {
             return PartialView("../Template/FrontPage");
         }
+
+        public ActionResult Register()
+        {
+            return PartialView("../Template/Register");
+        }
     }
 }

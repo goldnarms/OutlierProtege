@@ -1,11 +1,11 @@
 ﻿<wizard on-finish="fpc.wizardFinished(fpc.protegeViewModel)" hide-indicators="true">
     <wz-step title="Your field">
         <label for="field">Your field of expertice</label>
-        <input type="text" name="field" value="" typeahead="field as field.Name for field in fpc.fields | filter:$viewValue | limitTo:8" ng-model="fpc.protegeViewModel.selectedField" />
+        <input type="text" name="field" value="" typeahead="field as field.name for field in fpc.fields | filter:$viewValue | limitTo:8" ng-model="fpc.protegeViewModel.selectedField" />
         <input type="submit" wz-next value="Continue" data-ng-disabled="!fpc.protegeViewModel.selectedField" class="btn btn-default" />
     </wz-step>
     <wz-step title="Your experience">
-        <label for="years">How many years of expertice do you have in {{ fpc.protegeViewModel.selectedField.Name }}?</label>
+        <label for="years">How many years of expertice do you have in {{ fpc.protegeViewModel.selectedField.name }}?</label>
         <input type="number" name="years" value="" data-ng-model="fpc.years" />
         <input type="submit" wz-next value="Continue" data-ng-disabled="!fpc.years" class="btn btn-default" data-ng-click="fpc.addYears(fpc.years)" />
     </wz-step>
@@ -14,10 +14,10 @@
             <li data-ng-repeat="practiceVM in fpc.protegeViewModel.practiceVMs track by $index">
                 <h5>Year: {{ practiceVM.year }}</h5>
                 <ul style="list-style: none">
-                    <li data-ng-repeat="practice in practiceVM.practices">
+                    <li data-ng-repeat="practice in practiceVM.practices" style="margin-bottom: 4px">
                         <div class="row">
                             <div class="col-md-12">
-                                <select><option>Studied</option><option>Worked</option></select> for <select><option>1 h</option><option>2 h</option></select> each week
+                                Type of practice: <select data-ng-model="practice.taskId" data-ng-options="task.id as task.description for task in fpc.tasks"><option value="">Select task ...</option></select> for <select data-ng-model="practice.hours" data-ng-options="hour.value as hour.text for hour in fpc.hoursInWeek"><option value="">Select hours ...</option></select> each week
                             </div>
                         </div>
                     </li>

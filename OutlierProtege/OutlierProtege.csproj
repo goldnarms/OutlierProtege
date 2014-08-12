@@ -143,9 +143,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
@@ -3207,6 +3204,7 @@
     <Content Include="Scripts\toastr.min.js.map" />
     <Content Include="Views\Template\FrontPage.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Template\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3218,6 +3216,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="App\App.ts" />
     <TypeScriptCompile Include="App\Controllers\FrontPageController.ts" />
+    <TypeScriptCompile Include="App\Controllers\RegisterController.ts" />
     <TypeScriptCompile Include="App\Directives\Wizard.ts" />
     <TypeScriptCompile Include="App\Interfaces\IDbModel.ts" />
     <TypeScriptCompile Include="App\Interfaces\IPractice.ts" />
@@ -3235,6 +3234,7 @@
     <TypeScriptCompile Include="App\Services\ResourceService.ts" />
     <TypeScriptCompile Include="App\_all.ts" />
     <TypeScriptCompile Include="App\Models\Subject.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -3246,6 +3246,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\underscore\underscore.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
