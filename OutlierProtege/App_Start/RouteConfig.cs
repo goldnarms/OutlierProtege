@@ -17,10 +17,10 @@ namespace OutlierProtege
             //    url: "Home/FrontPage",
             //    defaults: new { controller = "Home", action = "FrontPage" });
 
-            //routes.MapRoute(
-            //    name: "register",
-            //    url: "Home/Register/{pid}",
-            //    defaults: new { controller = "Home", action = "Register", donuts = UrlParameter.Optional });
+            routes.MapRoute(
+                name: "register",
+                url: "register/{pid}",
+                defaults: new { controller = "Home", action = "Register", pid = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

@@ -5,12 +5,16 @@
 
         public id: number;
         public description: string;
-        constructor(private resourceService: Services.IResourceService) {
+        constructor(private $q: ng.IQService, private resourceService: Services.IResourceService) {
 
         }
 
-        public saveToDb(): Task {
-            return this.resourceService.task.save(this);
+        public saveToDb(): ng.IPromise<Models.Task> {
+            var deferred = this.$q.defer<Models.Task>();
+            this.resourceService.task.save(this, (data) => {
+                deferred.resolve(<Models.Task>data);
+            });
+            return deferred.promise;
         }
     }
 } 

@@ -17,14 +17,14 @@ namespace OutlierProtege.Controllers.Api
         // GET: api/Proteges
         public IQueryable<Protege> GetProteges()
         {
-            return db.Proteges;
+            return db.Proteges.Include(p => p.Field);
         }
 
         // GET: api/Proteges/5
         [ResponseType(typeof(Protege))]
-        public async Task<IHttpActionResult> GetProtege(int id)
+        public async Task<IHttpActionResult> GetProteges(int id)
         {
-            Protege protege = await db.Proteges.FindAsync(id);
+            Protege protege = await db.Proteges.Include(p => p.Field).SingleOrDefaultAsync(p => p.Id == id);
             if (protege == null)
             {
                 return NotFound();

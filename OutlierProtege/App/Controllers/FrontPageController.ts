@@ -14,8 +14,8 @@ module App.Controllers {
     }
 
     export class FrontPageController implements IFrontPageController{
-        public injection(): any[] { return ["$routeParams", "$location", "resourceService", FrontPageController]; }
-        static $inject = ["$routeParams", "$location", "resourceService"];
+        public injection(): any[] { return ["$q", "$routeParams", "$location", "resourceService", FrontPageController]; }
+        static $inject = ["$q", "$routeParams", "$location", "resourceService"];
 
         public fields: Models.Field[];
         public sources: Models.Source[];
@@ -24,7 +24,7 @@ module App.Controllers {
         public selectedField: string;
         public protegeViewModel: IProtegeViewModel;
         public hoursInWeek: IHourViewModel[];
-        constructor(private $routeParams: ng.route.IRouteService, private $location: ng.ILocationService, private resourceService: Services.IResourceService) {
+        constructor(private $q: ng.IQService, private $routeParams: ng.route.IRouteService, private $location: ng.ILocationService, private resourceService: Services.IResourceService) {
             this.init();
         }
 
@@ -44,11 +44,12 @@ module App.Controllers {
         }
 
         public wizardFinished(viewModel: IProtegeViewModel): void {
-            var protege = new Models.Protege(this.resourceService);
+            var protege = new Models.Protege(this.$q, this.resourceService);
             protege.hoursLogged = 30;
             protege.field = viewModel.selectedField;
-            var savedProtege = protege.saveToDb();
-            this.$location.path("/register/" + savedProtege.id);
+            protege.saveToDb().then((savedProtege) => {
+                this.$location.path("/register/" + savedProtege.id);                
+            });
         }
 
         private init(): void {

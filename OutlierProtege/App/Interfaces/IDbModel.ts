@@ -2,6 +2,6 @@
     "use strict";
 
     export interface IDbModel<T> {
-        saveToDb(): T;
+        saveToDb(): ng.IPromise<T>;
     }
 } 

@@ -8,11 +8,15 @@
         public userId: number;
         public fieldOfExperienceId: number;
         public field: Field = null;
-        constructor(private resourceServiece: Services.IResourceService) {
+        constructor(private $q: ng.IQService, private resourceService: Services.IResourceService) {
         }
 
-        public saveToDb(): Models.Protege {
-            return this.resourceServiece.protege.save(this);
+        public saveToDb(): ng.IPromise<Models.Protege> {
+            var deferred = this.$q.defer<Models.Protege>();
+            this.resourceService.protege.save(this, (data) => {
+                deferred.resolve(<Models.Protege>data);
+            });
+            return deferred.promise;
         }
     }
 } 

@@ -4,11 +4,15 @@
     export class Source implements Interfaces.ISource {
         public id: number;
         public description: string;
-        constructor(private resourceServiece: Services.IResourceService) {
+        constructor(private $q: ng.IQService, private resourceService: Services.IResourceService) {
         }
 
-        public saveToDb(): Models.Source {
-            return this.resourceServiece.source.save(this);
+        public saveToDb(): ng.IPromise<Models.Source> {
+            var deferred = this.$q.defer<Models.Source>();
+            this.resourceService.source.save(this, (data) => {
+                deferred.resolve(<Models.Source>data);
+            });
+            return deferred.promise;
         }
     }
 } 
