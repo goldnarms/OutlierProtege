@@ -12,6 +12,15 @@ namespace OutlierProtege
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //routes.MapRoute(
+            //    name: "frontPage",
+            //    url: "Home/FrontPage",
+            //    defaults: new { controller = "Home", action = "FrontPage" });
+
+            //routes.MapRoute(
+            //    name: "register",
+            //    url: "Home/Register/{pid}",
+            //    defaults: new { controller = "Home", action = "Register", donuts = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

@@ -19,7 +19,7 @@ namespace OutlierProtege
                 .Include("~/bower_components/angular-resource/angular-resource.js")
                 .Include("~/bower_components/angular-route/angular-route.js")
                 .Include("~/bower_components/angular-sanitize/angular-sanitize.js")
-                .Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
+                //.Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
                 .Include("~/bower_components/jquery-steps/build/jquery.steps.js")
                 .Include("~/bower_components/angular-wizard/dist/angular-wizard.js")
                 .Include("~/bower_components/bootstrap/dist/js/bootstrap.js")
@@ -45,6 +45,7 @@ namespace OutlierProtege
 
             bundles.Add(new ScriptBundle("~/bundles/app")
                 .IncludeDirectory("~/App/Services/", "*.js")
+                .IncludeDirectory("~/App/Factories/", "*.js")
                 .IncludeDirectory("~/App/Directives/", "*.js")
                 .IncludeDirectory("~/App/Interfaces/", "*.js")
                 .IncludeDirectory("~/App/Controllers/", "*.js")

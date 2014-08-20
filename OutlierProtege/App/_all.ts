@@ -20,3 +20,4 @@
 /// <reference path="services/resourceservice.ts" />
 /// <reference path="controllers/frontpagecontroller.ts" />
 /// <reference path="services/logger.ts" />
+/// <reference path="factories/authhttpresponseinterceptor.ts" />

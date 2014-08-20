@@ -3218,6 +3218,7 @@
     <TypeScriptCompile Include="App\Controllers\FrontPageController.ts" />
     <TypeScriptCompile Include="App\Controllers\RegisterController.ts" />
     <TypeScriptCompile Include="App\Directives\Wizard.ts" />
+    <TypeScriptCompile Include="App\Factories\AuthHttpResponseInterceptor.ts" />
     <TypeScriptCompile Include="App\Interfaces\IDbModel.ts" />
     <TypeScriptCompile Include="App\Interfaces\IPractice.ts" />
     <TypeScriptCompile Include="App\Interfaces\ISource.ts" />

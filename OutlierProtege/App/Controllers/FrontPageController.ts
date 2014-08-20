@@ -14,8 +14,8 @@ module App.Controllers {
     }
 
     export class FrontPageController implements IFrontPageController{
-        public injection(): any[] { return ["$state", "resourceService", FrontPageController]; }
-        static $inject = ["$state", "resourceService"];
+        public injection(): any[] { return ["$routeParams", "$location", "resourceService", FrontPageController]; }
+        static $inject = ["$routeParams", "$location", "resourceService"];
 
         public fields: Models.Field[];
         public sources: Models.Source[];
@@ -24,7 +24,7 @@ module App.Controllers {
         public selectedField: string;
         public protegeViewModel: IProtegeViewModel;
         public hoursInWeek: IHourViewModel[];
-        constructor(private $state: ng.ui.IStateService, private resourceService: Services.IResourceService) {
+        constructor(private $routeParams: ng.route.IRouteService, private $location: ng.ILocationService, private resourceService: Services.IResourceService) {
             this.init();
         }
 
@@ -48,7 +48,7 @@ module App.Controllers {
             protege.hoursLogged = 30;
             protege.field = viewModel.selectedField;
             var savedProtege = protege.saveToDb();
-            this.$state.go("register", { pid: savedProtege.id });
+            this.$location.path("/register/" + savedProtege.id);
         }
 
         private init(): void {

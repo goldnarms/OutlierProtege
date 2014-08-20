@@ -31,7 +31,6 @@ var App;
         "app.directives",
         "ngResource",
         "ngRoute",
-        "ui.router",
         "ui.bootstrap",
         "mgo-angular-wizard"
     ];
@@ -39,31 +38,36 @@ var App;
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);
     var app = angular.module("app", angularModules);
 
+    //app.factory("AuthHttpResponseInterceptor", Factories.AuthHttpResponseInterceptor);
     //app.factory("resourceService", App.Services.ResourceService.prototype.injection());
     //app.controller("frontPageController", App.Controllers.FrontPageConroller.prototype.injection());
+    app.config([
+        "$locationProvider", "$routeProvider", "$httpProvider", function ($locationProvider, $routeProvider, $httpProvider) {
+            $locationProvider.hashPrefix('!').html5Mode(true);
+            var homepageRoute = {
+                templateUrl: "Home/FrontPage",
+                controller: "frontPageController",
+                controllerAs: "fpc",
+                reloadOnSearch: false,
+                caseInsensitiveMatch: true
+            };
+
+            $routeProvider.when("/", homepageRoute).when("/register/:pid", {
+                //templateUrl: (params) => { return "/Home/Register?pid=" + params.donuts; },
+                templateUrl: "/Home/Register",
+                controller: "registerController",
+                controllerAs: "rc",
+                caseInsensitiveMatch: true
+            }).otherwise(homepageRoute);
+            //$httpProvider.interceptors.push('AuthHttpResponseInterceptor');
+        }]);
+
     app.run([
-        '$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+        '$rootScope', function ($rootScope) {
             // It's very handy to add references to $state and $stateParams to the $rootScope
             // so that you can access them from any scope within your applications.For example,
             // <li ui-sref-active="active }"> will set the <li> // to active whenever
             // 'contacts.list' or one of its decendents is active.
-            $rootScope.$state = $state;
-            $rootScope.$stateParams = $stateParams;
-        }]);
-
-    app.config([
-        "$locationProvider", "$stateProvider", "$urlRouterProvider", function ($locationProvider, $stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.otherwise('/');
-            $stateProvider.state("home", {
-                controller: "frontPageController as fpc",
-                url: "/",
-                templateUrl: "Home/FrontPage"
-            }).state("register", {
-                controller: "registerController as rc",
-                url: "register/:id",
-                templateUrl: "Home/Register"
-            });
-            $locationProvider.html5Mode(true);
         }]);
 
     

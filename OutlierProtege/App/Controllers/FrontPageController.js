@@ -5,13 +5,14 @@ var App;
         "use strict";
 
         var FrontPageController = (function () {
-            function FrontPageController($state, resourceService) {
-                this.$state = $state;
+            function FrontPageController($routeParams, $location, resourceService) {
+                this.$routeParams = $routeParams;
+                this.$location = $location;
                 this.resourceService = resourceService;
                 this.init();
             }
             FrontPageController.prototype.injection = function () {
-                return ["$state", "resourceService", FrontPageController];
+                return ["$routeParams", "$location", "resourceService", FrontPageController];
             };
 
             FrontPageController.prototype.addYears = function (years) {
@@ -36,7 +37,7 @@ var App;
                 protege.hoursLogged = 30;
                 protege.field = viewModel.selectedField;
                 var savedProtege = protege.saveToDb();
-                this.$state.go("register", { pid: savedProtege.id });
+                this.$location.path("/register/" + savedProtege.id);
             };
 
             FrontPageController.prototype.init = function () {
@@ -50,7 +51,7 @@ var App;
                     this.hoursInWeek.push({ value: i, text: i + " h" });
                 }
             };
-            FrontPageController.$inject = ["$state", "resourceService"];
+            FrontPageController.$inject = ["$routeParams", "$location", "resourceService"];
             return FrontPageController;
         })();
         Controllers.FrontPageController = FrontPageController;
