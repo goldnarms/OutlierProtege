@@ -9,12 +9,12 @@ module App.Controllers {
     }
 
     export class RegisterController implements IRegisterController {
-        public injection(): any[] { return ["$routeParams", "resourceService", RegisterController]; }
-        static $inject = ["$routeParams", "resourceService"];
+        public injection(): any[] { return ["$routeParams", "resourceService", "Azureservice", RegisterController]; }
+        static $inject = ["$routeParams", "resourceService", "Azureservice"];
         public protege: Models.Protege;
         public hoursLogged: number;
         public precentage: string;
-        constructor(private $routeParams: IRegisterRouteParams, private resourceService: App.Services.IResourceService) {
+        constructor(private $routeParams: IRegisterRouteParams, private resourceService: App.Services.IResourceService, private azureservice: Interfaces.IAzureService) {
             this.init();
         }
 
@@ -25,6 +25,10 @@ module App.Controllers {
                 var hoursPrecentage = this.hoursLogged / 100;
                 this.precentage = "width: " + hoursPrecentage + "%";
             });
+        }
+
+        public register(providername: string): void {
+            this.azureservice.login(providername);
         }
     }
 

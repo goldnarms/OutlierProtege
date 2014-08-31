@@ -42,13 +42,13 @@ namespace OutlierProtege
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: "bML3gWI3kFlmECMu55IjjUcrQ",
+               consumerSecret: "jgK0fW4AxKWfTNH4ryi1fglZTtfLBInWGzu1XuDuUSQI9rwZro");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1526843637531026",
+               appSecret: "35f1f0211b04b33165e5189e98b45bd7");
 
             //app.UseGoogleAuthentication();
         }

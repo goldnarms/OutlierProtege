@@ -1,11 +1,12 @@
-﻿<section class="section swatch-white-red has-top">
+﻿@model OutlierProtege.Models.RegisterViewModel
+<section class="section swatch-white-red has-top">
     <div class="decor-top">
-        <svg class="decor" height="100%" preserveaspectratio="none" version="1.1" viewbox="0 0 100 100" width="100%" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 100 L50 0 L100 100" stroke-width="0"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" version="1.1" preserveAspectRatio="none" height="100%" class="decor">
+            <path stroke-width="0" d="M0 100 L50 0 L100 100" />
         </svg>
     </div>
     <div class="container">
-        <header class="section-header underline">
+        <header class="section-header underline text-center">
             <h1 class="headline hyper hairline">Your progress</h1>
             <p class="big">
                 <div class="progress">
@@ -13,32 +14,67 @@
                 </div>
             </p>
         </header>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <form id="contactForm" class="contact-form">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        @*<div class="form-group form-icon-group">
+                <input type="text" required="" placeholder="Your email *" name="name" id="name" class="form-control">
+                <i class="fa fa-user"></i>
+            </div>*@
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form", @class = "contact-form", id = "contactForm" }))
+            {
+            <div class="row">
+                <div class="col-md-6">
                     <div class="form-group form-icon-group">
-                        <input class="form-control" id="name" name="name" placeholder="Your name *" type="text" required />
+                        @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Your email * ", required = "", name = "email" })
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="form-group form-icon-group">
-                        <input class="form-control" id="email" name="email" placeholder="Your email *" type="email" required>
-                        <i class="fa fa-envelope"></i>
+                        @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password *" })
+                        <i class="fa fa-key"></i>
                     </div>
                     <div class="form-group form-icon-group">
-                        <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="10" required></textarea>
-                        <i class="fa fa-pencil"></i>
+                        @*@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })*@
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Repeat password *" })
+                        <i class="fa fa-key"></i>
                     </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-primary btn-icon btn-icon-right" type="submit">
-                            Send email
-                            <div class="hex-alt">
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                        </button>
+                    <div class="text-default">
+                        <div class="text-center">
+                            <a target="_self" class="btn btn-primary btn-lg  btn-icon-right" href="#">
+                                Create local account
+                                <span class="hex-alt">
+                                    <i data-animation="shake" class="fa fa-rocket"></i>
+                                    @*<input type="submit" class="btn btn-default" value="Register" />*@
+                                </span>
+                            </a>
+                        </div>
                     </div>
-                </form>
-                <div id="messages"></div>
+                </div>
+                <div class="col-md-6">
+                    <ul style="list-style-type: none">
+                        <li>
+                            <a target="_self" class="btn btn-primary btn-lg  btn-icon-right" href="#" data-ng-click="rc.register('facebook')">
+                                Facebook
+                                <span class="hex-alt">
+                                    <i class="fa fa-facebook"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_self" class="btn btn-primary btn-lg  btn-icon-right" href="#" data-ng-click="rc.register('twitter')">
+                                Twitter
+                                <span class="hex-alt">
+                                    <i class="fa fa-twitter"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        }
     </div>
 </section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

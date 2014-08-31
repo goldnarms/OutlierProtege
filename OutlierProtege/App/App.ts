@@ -39,7 +39,8 @@ module App {
         "ngResource",
         "ngRoute",
         "ui.bootstrap",
-        "mgo-angular-wizard"
+        "mgo-angular-wizard",
+        "azure-mobile-service.module"
     ];
 
     //angularModules = angularModules.concat(App.Config.CurrentConfiguration.AngularModules);
@@ -67,8 +68,8 @@ module App {
                 controller: "registerController",
                 controllerAs: "rc",
                 caseInsensitiveMatch: true
-            })
-            .otherwise(homepageRoute);
+            });
+            //.otherwise(homepageRoute);
         //$httpProvider.interceptors.push('AuthHttpResponseInterceptor');
     }]);
 

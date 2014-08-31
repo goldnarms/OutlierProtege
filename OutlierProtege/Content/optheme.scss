@@ -1,0 +1,18 @@
+﻿.navbar {
+    border-radius: 0px;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 0px;
+}
+.btn-sm, .btn-group-sm > .btn {
+    border-radius: 0px;
+}
+.btn-xs, .btn-group-xs > .btn {
+    border-radius: 0px;
+}
+
+.btn-icon-right.btn-lg:after {
+    border-bottom: 23px solid transparent;
+    border-top: 23px solid transparent;
+}

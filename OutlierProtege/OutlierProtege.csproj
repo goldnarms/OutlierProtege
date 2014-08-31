@@ -66,6 +66,28 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile">
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.3\lib\net45\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.2.3\lib\net45\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -73,9 +95,15 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.19\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.19\lib\net45\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -146,17 +174,8 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
@@ -166,9 +185,6 @@
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Google">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
       <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
@@ -210,8 +226,59 @@
     <Content Include="App\app.js">
       <DependentUpon>App.ts</DependentUpon>
     </Content>
+    <Content Include="App\Controllers\FrontPageController.js">
+      <DependentUpon>FrontPageController.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Controllers\RegisterController.js">
+      <DependentUpon>RegisterController.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Directives\Wizard.js">
+      <DependentUpon>Wizard.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Factories\AuthHttpResponseInterceptor.js">
+      <DependentUpon>AuthHttpResponseInterceptor.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IDbModel.js">
+      <DependentUpon>IDbModel.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IPractice.js">
+      <DependentUpon>IPractice.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IProtege.js">
+      <DependentUpon>IProtege.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\ISource.js">
+      <DependentUpon>ISource.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\ITask.js">
+      <DependentUpon>ITask.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IUpdatableResourceClass.js">
+      <DependentUpon>IUpdatableResourceClass.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Field.js">
+      <DependentUpon>Field.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Practice.js">
+      <DependentUpon>Practice.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Protege.js">
+      <DependentUpon>Protege.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Source.js">
+      <DependentUpon>Source.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Subject.js">
+      <DependentUpon>Subject.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Task.js">
+      <DependentUpon>Task.ts</DependentUpon>
+    </Content>
     <Content Include="App\Services\FieldService.js">
       <DependentUpon>FieldService.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Services\Logger.js">
+      <DependentUpon>Logger.ts</DependentUpon>
     </Content>
     <Content Include="App\Services\resourceservice.js">
       <DependentUpon>ResourceService.ts</DependentUpon>
@@ -221,6 +288,7 @@
     </Content>
     <Content Include="bower_components\angular-animate\angular-animate.js" />
     <Content Include="bower_components\angular-animate\angular-animate.min.js" />
+    <Content Include="bower_components\angular-azure-mobile-service\angular-azure-mobile-service.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-tpls.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap.js" />
@@ -2205,6 +2273,12 @@
     <Content Include="Content\images\switcher\red-white.png" />
     <Content Include="Content\loading.gif" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\optheme.css">
+      <DependentUpon>optheme.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\optheme.min.css">
+      <DependentUpon>optheme.css</DependentUpon>
+    </Content>
     <Content Include="Content\swatch-beige-black.css" />
     <Content Include="Content\swatch-beige-black.min.css" />
     <Content Include="Content\swatch-black-beige.css" />
@@ -2839,6 +2913,65 @@
     <Content Include="Content\images\design\revolution\assets\arrows.psd" />
     <Content Include="Content\images\design\revolution\assets\bullets.psd" />
     <Content Include="Content\images\design\revolution\assets\small_arrows.psd" />
+    <Content Include="Content\optheme.scss" />
+    <Content Include="Content\optheme.css.map">
+      <DependentUpon>optheme.css</DependentUpon>
+    </Content>
+    <Content Include="bower_components\angular-azure-mobile-service\.bower.json" />
+    <Content Include="bower_components\angular-azure-mobile-service\bower.json" />
+    <Content Include="bower_components\angular-azure-mobile-service\LICENSE" />
+    <Content Include="bower_components\angular-azure-mobile-service\README.md" />
+    <Content Include="App\Models\Field.js.map">
+      <DependentUpon>Field.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Practice.js.map">
+      <DependentUpon>Practice.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Protege.js.map">
+      <DependentUpon>Protege.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Source.js.map">
+      <DependentUpon>Source.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Subject.js.map">
+      <DependentUpon>Subject.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Models\Task.js.map">
+      <DependentUpon>Task.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Factories\AuthHttpResponseInterceptor.js.map">
+      <DependentUpon>AuthHttpResponseInterceptor.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Directives\Wizard.js.map">
+      <DependentUpon>Wizard.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Controllers\FrontPageController.js.map">
+      <DependentUpon>FrontPageController.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Controllers\RegisterController.js.map">
+      <DependentUpon>RegisterController.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Services\Logger.js.map">
+      <DependentUpon>Logger.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IDbModel.js.map">
+      <DependentUpon>IDbModel.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IPractice.js.map">
+      <DependentUpon>IPractice.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IProtege.js.map">
+      <DependentUpon>IProtege.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\ISource.js.map">
+      <DependentUpon>ISource.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\ITask.js.map">
+      <DependentUpon>ITask.ts</DependentUpon>
+    </Content>
+    <Content Include="App\Interfaces\IUpdatableResourceClass.js.map">
+      <DependentUpon>IUpdatableResourceClass.ts</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\OutlierProtege.pubxml" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -3207,6 +3340,7 @@
     <Content Include="Views\Template\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Modules\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -3219,6 +3353,7 @@
     <TypeScriptCompile Include="App\Controllers\RegisterController.ts" />
     <TypeScriptCompile Include="App\Directives\Wizard.ts" />
     <TypeScriptCompile Include="App\Factories\AuthHttpResponseInterceptor.ts" />
+    <TypeScriptCompile Include="App\Interfaces\IAzureService.ts" />
     <TypeScriptCompile Include="App\Interfaces\IDbModel.ts" />
     <TypeScriptCompile Include="App\Interfaces\IPractice.ts" />
     <TypeScriptCompile Include="App\Interfaces\ISource.ts" />
@@ -3245,6 +3380,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\azure-mobile-services-client\AzureMobileServicesClient.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\toastr\toastr.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\underscore\underscore.d.ts" />
@@ -3278,6 +3414,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

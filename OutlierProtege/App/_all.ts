@@ -11,11 +11,13 @@
 /// <reference path="../scripts/typings/angular-ui/angular-ui-router.d.ts" />
 /// <reference path="../scripts/typings/angular-ui-bootstrap/angular-ui-bootstrap.d.ts" />
 /// <reference path="../scripts/typings/underscore/underscore.d.ts" />
+/// <reference path="../scripts/typings/azure-mobile-services-client/azuremobileservicesclient.d.ts" />
 
 /// <reference path="services/fieldservice.ts" />
 /// <reference path="models/field.ts" />
 /// <reference path="directives/wizard.ts" />
 /// <reference path="models/subject.ts" />
+/// <reference path="interfaces/iazureservice.ts" />
 /// <reference path="interfaces/iupdatableresourceclass.ts" />
 /// <reference path="services/resourceservice.ts" />
 /// <reference path="controllers/frontpagecontroller.ts" />
