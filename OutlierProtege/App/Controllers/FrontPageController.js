@@ -36,11 +36,18 @@ var App;
             FrontPageController.prototype.wizardFinished = function (viewModel) {
                 var _this = this;
                 var protege = new App.Models.Protege(this.$q, this.resourceService);
-                protege.hoursLogged = 30;
+
+                //protege.hoursLogged = this.calculateHoursLogged(viewModel.practiceVMs);
+                protege.practices = viewModel.practices;
                 protege.field = viewModel.selectedField;
                 protege.saveToDb().then(function (savedProtege) {
                     _this.$location.path("/register/" + savedProtege.id);
                 });
+            };
+
+            FrontPageController.prototype.calculateHoursLogged = function (practiceVms) {
+                var initialMemo = 0;
+                //var hours = _.reduce(practiceVms, (pvm: IPracticeViewModel) => { return _.reduce(pvm.practices, (p), { return p.}, initialMemo);
             };
 
             FrontPageController.prototype.init = function () {

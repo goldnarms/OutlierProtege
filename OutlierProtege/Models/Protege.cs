@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,5 +18,7 @@ namespace OutlierProtege.Models
         public virtual Field Field { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
+
+        public virtual ICollection<Practice> Practices { get; set; }
     }
 }

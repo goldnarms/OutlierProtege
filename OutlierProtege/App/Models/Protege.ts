@@ -8,6 +8,7 @@
         public userId: number;
         public fieldOfExperienceId: number;
         public field: Field = null;
+        public practices: Interfaces.IPractice[];
         constructor(private $q: ng.IQService, private resourceService: Services.IResourceService) {
         }
 

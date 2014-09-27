@@ -79,7 +79,7 @@ namespace OutlierProtege.Controllers.Api
 
             db.Proteges.Add(protege);
             await db.SaveChangesAsync();
-
+            protege.HoursLogged = protege.Practices.Sum(p => p.Hours);
             return CreatedAtRoute("DefaultApi", new { id = protege.Id }, protege);
         }
 

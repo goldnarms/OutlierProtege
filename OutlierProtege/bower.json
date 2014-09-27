@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
+	"angular-azure-mobile-service": "*",
     "angular-ui-router": "~0.2.10",
 	"jquery": "~2.1.0",
     "angular": "~1.2.0",

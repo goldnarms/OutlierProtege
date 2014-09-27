@@ -45,11 +45,17 @@ module App.Controllers {
 
         public wizardFinished(viewModel: IProtegeViewModel): void {
             var protege = new Models.Protege(this.$q, this.resourceService);
-            protege.hoursLogged = 30;
+            //protege.hoursLogged = this.calculateHoursLogged(viewModel.practiceVMs);
+            protege.practices = viewModel.practices;
             protege.field = viewModel.selectedField;
             protege.saveToDb().then((savedProtege) => {
                 this.$location.path("/register/" + savedProtege.id);                
             });
+        }
+
+        private calculateHoursLogged(practiceVms: IPracticeViewModel[]) {
+            var initialMemo = 0;
+            //var hours = _.reduce(practiceVms, (pvm: IPracticeViewModel) => { return _.reduce(pvm.practices, (p), { return p.}, initialMemo);
         }
 
         private init(): void {
@@ -69,6 +75,7 @@ module App.Controllers {
         selectedField: any;
         years: number;
         practiceVMs: IPracticeViewModel[];
+        practices: Interfaces.IPractice[];
     }
 
     export interface IPracticeViewModel {
